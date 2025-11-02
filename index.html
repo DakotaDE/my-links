@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Мої корисні посилання</title>
+<title>Dakota — мої посилання</title>
 <style>
   :root{
-    --bg:#0f1724;
-    --card:#0b1220;
+    --bg:#0e1117;
+    --card:#1a1f2e;
     --accent:#8b5cf6;
-    --text:#e6eef8;
+    --text:#f1f5f9;
     --muted:#94a3b8;
     --radius:16px;
     --maxw:720px;
@@ -19,96 +19,107 @@
   *{box-sizing:border-box}
   body{
     margin:0; min-height:100vh; font-family:Inter,system-ui,Arial, sans-serif;
-    background: linear-gradient(180deg,var(--bg), #071026 120%);
+    background: linear-gradient(180deg,var(--bg), #0b1220 120%);
     color:var(--text); display:flex; align-items:center; justify-content:center;
     padding:32px;
   }
-  .wrap{
-    width:100%; max-width:var(--maxw); text-align:center;
-  }
+  .wrap{width:100%; max-width:var(--maxw); text-align:center;}
   .profile{
     display:flex; gap:12px; align-items:center; justify-content:center;
     margin-bottom:18px;
   }
   .avatar{
-    width:84px; height:84px; border-radius:18px; overflow:hidden; flex:0 0 84px;
-    box-shadow:var(--shadow); border:2px solid rgba(255,255,255,0.04);
+    width:90px; height:90px; border-radius:20px; overflow:hidden; flex:0 0 90px;
+    box-shadow:var(--shadow); border:2px solid rgba(255,255,255,0.05);
   }
   .avatar img{width:100%; height:100%; object-fit:cover;}
-  h1{margin:0; font-size:20px}
+  h1{margin:0; font-size:22px}
   p.sub{margin:6px 0 0; color:var(--muted); font-size:14px}
-  .cards{display:grid; grid-template-columns:1fr; gap:var(--gap); margin-top:20px}
+  .cards{display:grid; grid-template-columns:1fr; gap:var(--gap); margin-top:22px}
   .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
     padding:18px; border-radius:var(--radius); box-shadow:var(--shadow);
-    text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;
+    text-decoration:none; color:inherit; display:flex; align-items:center; gap:14px;
     transition:transform .15s ease, box-shadow .15s ease;
-    border:1px solid rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.05);
   }
   .card:hover{transform:translateY(-6px); box-shadow:0 18px 38px rgba(2,6,23,0.7)}
-  .card .icon{width:48px; height:48px; border-radius:12px; display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03); flex:0 0 48px}
-  .card h3{margin:0; font-size:16px}
+  .icon{font-size:26px}
+  .card h3{margin:0; font-size:17px}
   .card p{margin:4px 0 0; color:var(--muted); font-size:13px}
-  footer{margin-top:18px; color:var(--muted); font-size:13px}
-  /* responsive */
+  footer{margin-top:20px; color:var(--muted); font-size:13px}
   @media(min-width:700px){ .cards{grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
   <main class="wrap">
     <div class="profile">
-      <div class="avatar"><img id="avatar" src="https://picsum.photos/seed/me/400" alt="avatar"></div>
+      <div class="avatar"><img id="avatar" src="https://picsum.photos/seed/dakota/400" alt="avatar"></div>
       <div>
-        <h1 id="displayName">Твій псевдонім</h1>
-        <p class="sub" id="bio">Коротко: ігри • стріми • 10-годинні проходження</p>
+        <h1 id="displayName">Dakota</h1>
+        <p class="sub" id="bio">🎮 Ігри • 🎧 Музика • ☕ Chill</p>
       </div>
     </div>
 
-    <div class="cards" id="linksContainer">
-      <!-- посилання згенеруються тут -->
-    </div>
+    <div class="cards" id="linksContainer"></div>
 
-    <footer>Додай свої посилання в коді (масив <code>links</code>) або через невеликий редактор.</footer>
+    <footer>© 2025 Dakota • Усі посилання в одному місці</footer>
   </main>
 
 <script>
-// === Налаштування: тут змінюєш свої посилання ===
 const profile = {
-  name: "Дакота",
-  bio: "Ігри • Чіл • 10-годинні проходження",
+  name: "Dakota",
+  bio: "🎮 Ігри • 🎧 Музика • ☕ Chill",
   avatar: "https://picsum.photos/seed/dakota/400"
 };
 
 const links = [
-  {title:"Мій YouTube", url:"https://youtube.com/...", desc:"Підписатись на канал", icon:"▶"},
-  {title:"Discord", url:"https://discord.gg/...", desc:"Зв'язатись зі мною", icon:"💬"},
-  {title:"Магазин", url:"https://shop.example.com", desc:"Мерч та підтримка", icon:"🛒"},
-  {title:"Спонсори", url:"https://patreon.com/...", desc:"Підтримати мене", icon:"❤️"},
+  {
+    title: "Instagram",
+    url: "https://instagram.com/dakota00de",
+    desc: "Мій профіль в Instagram",
+    icon: "📸"
+  },
+  {
+    title: "Spotify",
+    url: "https://open.spotify.com/user/315pbt3uqzysgzenfxn7o6xkidzm?si=ZP9LYtasSxadmxgfNh3xZg",
+    desc: "Слухай мої улюблені треки",
+    icon: "🎵"
+  },
+  {
+    title: "YouTube",
+    url: "https://www.youtube.com/@DakotaDE",
+    desc: "Підписуйся на канал DakotaDE",
+    icon: "▶️"
+  }
 ];
 
-// === Не міняй далі (генерація UI) ===
-document.getElementById('displayName').textContent = profile.name;
-document.getElementById('bio').textContent = profile.bio;
-document.getElementById('avatar').src = profile.avatar;
+// Заповнення профілю
+document.getElementById("displayName").textContent = profile.name;
+document.getElementById("bio").textContent = profile.bio;
+document.getElementById("avatar").src = profile.avatar;
 
-const container = document.getElementById('linksContainer');
-links.forEach(l=>{
-  const a = document.createElement('a');
-  a.className = 'card';
+// Генерація посилань
+const container = document.getElementById("linksContainer");
+links.forEach(l => {
+  const a = document.createElement("a");
+  a.className = "card";
   a.href = l.url;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
   a.innerHTML = `
-    <div class="icon" aria-hidden="true">${l.icon || '🔗'}</div>
+    <div class="icon">${l.icon}</div>
     <div>
       <h3>${escapeHtml(l.title)}</h3>
-      <p>${escapeHtml(l.desc || '')}</p>
+      <p>${escapeHtml(l.desc)}</p>
     </div>
   `;
   container.appendChild(a);
 });
 
-function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])) }
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
 </script>
 </body>
 </html>
