@@ -4,77 +4,95 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dakota — My Links</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Dakota — My Links (Anime)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#071021;
-    --card:#0f1724;
-    --glass: rgba(255,255,255,0.03);
-    --accent:#7c3aed;
-    --accent-2:#06b6d4;
-    --text:#e6eef8;
-    --muted:#9aa9bf;
-    --radius:16px;
-    --maxw:880px;
-    --gap:16px;
-    --shadow: 0 12px 30px rgba(2,6,23,0.7);
+    --bg-1:#0b1020; /* deep navy */
+    --bg-2:#ffe6f0; /* soft pink */
+    --card:#111426;
+    --accent:#ff6fb5; /* sakura pink */
+    --accent-2:#7ee7ff; /* cyan */
+    --glow:0 10px 30px rgba(255,111,181,0.12);
+    --muted:#b8c3d6;
+    --text:#eef6ff;
+    --radius:18px;
+    --maxw:920px;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0; font-family:Inter,system-ui,Arial,sans-serif; color:var(--text);
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
-                linear-gradient(180deg,var(--bg), #04101a 140%);
+    margin:0; font-family:Poppins, Inter, system-ui, Arial, sans-serif; color:var(--text);
+    background: radial-gradient(800px 500px at 10% 10%, rgba(126,231,255,0.06), transparent),
+                linear-gradient(180deg,var(--bg-1), #071026 140%);
     display:flex; align-items:center; justify-content:center; padding:28px;
-  }.wrap{width:100%; max-width:var(--maxw);} .card-root{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:28px; border-radius:20px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(6px); }
+  }.wrap{width:100%; max-width:var(--maxw);} .panel{ position:relative; overflow:hidden; border-radius:24px; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); box-shadow:var(--glow); }
 
-.header{display:flex; gap:18px; align-items:center} .avatar{width:96px; height:96px; border-radius:18px; overflow:hidden; flex:0 0 96px; border:2px solid rgba(255,255,255,0.04)} .avatar img{width:100%; height:100%; object-fit:cover; display:block} .title{flex:1; text-align:left} h1{margin:0; font-size:22px; letter-spacing:0.2px} .handle{margin-top:6px; color:var(--muted); font-size:14px} .bio{margin:10px 0 0; color:var(--muted); font-size:14px}
+/* Animated sakura petals */ .petals{position:absolute; inset:0; pointer-events:none; overflow:hidden} .petal{position:absolute; width:18px; height:18px; background:radial-gradient(circle at 40% 30%, #fff7fb 0%, var(--accent) 60%); border-radius:45%; opacity:0.9; transform:rotate(20deg); animation:fall 8s linear infinite} .petal:nth-child(2){left:20%; animation-duration:9s; top:-10%} .petal:nth-child(3){left:70%; animation-duration:10s; animation-delay:2s} .petal:nth-child(4){left:45%; animation-duration:7s; animation-delay:1s} @keyframes fall{0%{transform:translateY(-8vh) rotate(0deg) scale(0.7) } 100%{transform:translateY(120vh) rotate(360deg) scale(1.1); opacity:0.7}}
 
-.grid{display:grid; gap:14px; margin-top:20px} @media(min-width:700px){ .grid{grid-template-columns:repeat(2,1fr)} }
+.header{display:flex; gap:18px; align-items:center} .avatar-wrap{position:relative; width:120px; height:120px; flex:0 0 120px} .avatar{ width:100%; height:100%; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.6); border:3px solid rgba(255,255,255,0.04); display:block; object-fit:cover; } .avatar-frame{position:absolute; inset:auto  -6px -6px auto; right:-6px; bottom:-6px; width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-family:Baloo 2, Poppins; font-weight:600}
 
-.link-btn{ display:flex; gap:14px; align-items:center; padding:14px; border-radius:14px; text-decoration:none; color:inherit; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0)); border:1px solid rgba(255,255,255,0.03); transition:transform .18s ease, box-shadow .18s ease, border-color .18s; } .link-btn:hover{transform:translateY(-6px); box-shadow:0 22px 40px rgba(2,6,23,0.6); border-color: rgba(124,58,237,0.18)}
+.upload-btn{position:absolute; left:0; bottom:-12px; transform:translateY(50%); background:rgba(0,0,0,0.35); border-radius:999px; padding:6px 10px; font-size:13px; color:var(--text); cursor:pointer} .upload-input{display:none}
 
-.icon-wrap{width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex:0 0 56px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0)); border:1px solid rgba(255,255,255,0.02)} .link-content h3{margin:0; font-size:16px} .link-content p{margin:6px 0 0; font-size:13px; color:var(--muted)}
+.title{flex:1} h1{margin:0; font-size:22px; font-family:Baloo 2, Poppins} .handle{color:var(--muted); margin-top:6px} .bio{margin-top:8px; color:var(--muted); font-size:14px}
 
-.cta-row{display:flex; gap:10px; margin-top:18px; align-items:center} .pill{padding:8px 12px; border-radius:999px; font-size:13px; color:var(--text); background:linear-gradient(90deg,var(--accent), var(--accent-2)); box-shadow:0 6px 18px rgba(124,58,237,0.12); text-decoration:none}
+.grid{display:grid; gap:12px; margin-top:18px} @media(min-width:760px){ .grid{grid-template-columns:repeat(2,1fr)} }
 
-footer{margin-top:20px; color:var(--muted); font-size:13px; text-align:center}
+.link{ display:flex; gap:12px; align-items:center; padding:12px; border-radius:14px; text-decoration:none; color:inherit; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); transition:transform .16s cubic-bezier(.2,.9,.3,1), box-shadow .16s; } .link:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(7,12,28,0.6)}
 
-/* small helper */ .muted{color:var(--muted)} </style>
+.logo{width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0)); border:1px solid rgba(255,255,255,0.02)} .link h3{margin:0; font-size:15px} .link p{margin:6px 0 0; font-size:13px; color:var(--muted)}
+
+.accent-note{margin-top:14px; color:var(--muted); font-size:13px}
+
+footer{margin-top:18px; text-align:center; color:var(--muted); font-size:13px}
+
+/* small file-drop highlight */ .dropzone{border-radius:14px; padding:10px; border:1px dashed rgba(255,255,255,0.03); text-align:center; color:var(--muted); font-size:13px} .dropzone.drag{background:linear-gradient(90deg, rgba(255,111,181,0.06), rgba(126,231,255,0.03)); border-color:rgba(255,111,181,0.22)} </style>
 
 </head>
 <body>
   <main class="wrap">
-    <section class="card-root">
-      <div class="header">
-        <div class="avatar"><img id="avatar" src="https://picsum.photos/seed/dakota/400" alt="Dakota avatar"></div>
-        <div class="title">
-          <h1 id="displayName">Dakota</h1>
-          <div class="handle">@DakotaDE</div>
-          <div class="bio" id="bio">Gaming • Music • Chill streams — longplays and lets-plays</div>
-        </div>
-        <div class="cta-row">
-          <a class="pill" href="https://www.youtube.com/@DakotaDE" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
-      </div><div class="grid" id="linksContainer">
-    <!-- Links injected by script -->
+    <section class="panel">
+      <div class="petals" aria-hidden="true">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+      </div><div class="header">
+    <div class="avatar-wrap">
+      <img id="avatar" class="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23071226'/><text x='50%' y='52%' fill='%23ff6fb5' font-family='Baloo 2, Poppins' font-size='72' text-anchor='middle' dominant-baseline='middle'>Dakota</text></svg>" alt="avatar">
+      <div class="avatar-frame">☆</div>
+      <label class="upload-btn" for="avatarInput">Change avatar</label>
+      <input id="avatarInput" class="upload-input" type="file" accept="image/*" />
+    </div>
+
+    <div class="title">
+      <h1 id="displayName">Dakota</h1>
+      <div class="handle">@DakotaDE</div>
+      <div class="bio" id="bio">Gaming • Music • Chill streams — longplays & let's-plays (anime vibe)</div>
+    </div>
   </div>
 
-  <footer>© 2025 Dakota — All links in one place</footer>
+  <div class="grid" id="linksContainer"></div>
+
+  <div style="margin-top:14px">
+    <div class="dropzone" id="dropzone">Drag & drop an image here to set avatar, or click "Change avatar"</div>
+    <div class="accent-note">Tip: Avatar file is stored locally in your browser (no uploads). Refresh preserves it.</div>
+  </div>
+
+  <footer>© 2025 Dakota — Anime style links</footer>
 </section>
 
   </main><script>
 const profile = {
   name: "Dakota",
-  bio: "Gaming • Music • Chill streams — longplays and let’s-plays",
-  avatar: "https://picsum.photos/seed/dakota/400"
+  bio: "Gaming • Music • Chill streams — longplays & let's-plays (anime vibe)",
+  avatarKey: 'dakota_avatar_v1'
 };
 
 const links = [
   { title: "Instagram", url: "https://instagram.com/dakota00de", desc: "Follow me on Instagram", icon: "📸" },
-  { title: "Spotify", url: "https://open.spotify.com/user/315pbt3uqzysgzenfxn7o6xkidzm?si=ZP9LYtasSxadmxgfNh3xZg", desc: "My playlists and favorite tracks", icon: "🎧" },
-  { title: "YouTube", url: "https://www.youtube.com/@DakotaDE", desc: "Subscribe for longplays and streams", icon: "▶️" },
+  { title: "Spotify", url: "https://open.spotify.com/user/315pbt3uqzysgzenfxn7o6xkidzm?si=ZP9LYtasSxadmxgfNh3xZg", desc: "My playlists & tracks", icon: "🎧" },
+  { title: "YouTube", url: "https://www.youtube.com/@DakotaDE", desc: "Subscribe for longplays & streams", icon: "▶️" },
   { title: "GitHub", url: "https://github.com/DakotaDE", desc: "My projects and code", icon: "💻" },
   { title: "Telegram", url: "https://t.me/naikrashe", desc: "Join my Telegram", icon: "✉️" }
 ];
@@ -82,18 +100,23 @@ const links = [
 // Populate profile
 document.getElementById('displayName').textContent = profile.name;
 document.getElementById('bio').textContent = profile.bio;
-document.getElementById('avatar').src = profile.avatar;
 
+// Load avatar from localStorage if present
+const avatarImg = document.getElementById('avatar');
+const stored = localStorage.getItem(profile.avatarKey);
+if(stored){ avatarImg.src = stored }
+
+// Populate links
 const container = document.getElementById('linksContainer');
 links.forEach(l => {
   const a = document.createElement('a');
-  a.className = 'link-btn';
+  a.className = 'link';
   a.href = l.url;
   a.target = '_blank';
   a.rel = 'noopener noreferrer';
   a.innerHTML = `
-    <div class="icon-wrap">${escapeHtml(l.icon)}</div>
-    <div class="link-content">
+    <div class="logo">${escapeHtml(l.icon)}</div>
+    <div>
       <h3>${escapeHtml(l.title)}</h3>
       <p>${escapeHtml(l.desc)}</p>
     </div>
@@ -101,8 +124,36 @@ links.forEach(l => {
   container.appendChild(a);
 });
 
-function escapeHtml(s){
-  return String(s).replace(/[&<>'"]/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+// Avatar upload handling
+const input = document.getElementById('avatarInput');
+const dropzone = document.getElementById('dropzone');
+
+input.addEventListener('change', e => handleFiles(e.target.files));
+
+['dragenter','dragover'].forEach(ev => {
+  dropzone.addEventListener(ev, e=>{ e.preventDefault(); dropzone.classList.add('drag') })
+});
+['dragleave','drop'].forEach(ev => {
+  dropzone.addEventListener(ev, e=>{ e.preventDefault(); dropzone.classList.remove('drag') })
+});
+
+dropzone.addEventListener('drop', e => {
+  const dt = e.dataTransfer; if(!dt) return;
+  const files = dt.files; handleFiles(files);
+});
+
+function handleFiles(files){
+  if(!files || files.length===0) return;
+  const file = files[0];
+  if(!file.type.startsWith('image/')) { alert('Please select an image file.'); return }
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    avatarImg.src = reader.result;
+    try{ localStorage.setItem(profile.avatarKey, reader.result) }catch(e){ console.warn('Could not save avatar to localStorage', e) }
+  };
+  reader.readAsDataURL(file);
 }
+
+function escapeHtml(s){ return String(s).replace(/[&<>'\"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])) }
 </script></body>
 </html>
